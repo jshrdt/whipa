@@ -1,0 +1,846 @@
+{
+    "loading_params": {
+        "dirpaths": {
+            "multipa": "",
+            "asc": "../data/arabic-speech-corpus/",
+            "thchs": "../data/data_thchs30"
+        },
+        "streaming": "True",
+        "to_disk": "False",
+        "num_proc": "1"
+    },
+    "cv_whipa_base": {
+        "modelname": "openai/whisper-base",
+        "gen_args": {
+            "num_beams": 5
+        },
+        "fallback": [7,3,1],
+        "corpora": {
+            "train": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/cv_whipa_base",
+            "overwrite_output_dir": "True",
+            "peft": "False",
+            "per_device_train_batch_size": 64,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 1e-05,
+            "warmup_steps": 110,
+            "max_stetestps": 1100,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 220,
+            "eval_steps": 220,
+            "logging_steps": 110,
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "True",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "torch_empty_cache_steps": 5,
+            "push_to_hub": "True",
+            "max_seconds": 6
+        }
+    },
+    "cv_lowhipa_base":{
+        "modelname": "openai/whisper-base",
+        "gen_args": {
+            "num_beams": 3
+        },
+        "fallback": [1,7,5],
+        "corpora": {
+            "train": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/cv_lowhipa_base",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 64,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_steps": 110,
+            "max_steps": 1100,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 16,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 220,
+            "eval_steps": 220,
+            "logging_steps": 110,
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "True",
+            "metric_for_best_model": "per",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "True",
+            "torch_empty_cache_steps": 5,
+            "max_seconds": 6
+        }
+    },
+
+    "cv_whipa_large":{
+        "modelname": "openai/whisper-large-v2",
+        "gen_args": {
+            "num_beams": 3
+        },
+        "fallback": [7,5,1],    
+        "corpora": {
+            "train": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/cv_whipa_large",
+            "overwrite_output_dir": "True",
+            "peft": "False",
+            "per_device_train_batch_size": 64,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 1e-05,
+            "warmup_steps": 110,
+            "max_steps": 1100,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 220,
+            "eval_steps": 220,
+            "logging_steps": 110,
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "False",
+            "metric_for_best_model": "per",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "True",
+            "torch_empty_cache_steps": 5,
+            "max_seconds": 6
+        }
+    },
+
+    "cv_lowhipa_large": {
+        "modelname": "openai/whisper-large-v2",
+        "gen_args": {
+            "num_beams": 3
+        },
+        "fallback": [7,5,1],
+    
+        "corpora": {
+            "train": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/cv_lowhipa_large",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 64,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_steps": 110,
+            "max_steps": 1100,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 220,
+            "eval_steps": 220,
+            "logging_steps": 110,
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "False",
+            "metric_for_best_model": "per",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "True",
+            "torch_empty_cache_steps": 5,
+            "max_seconds": 6
+        }
+    },
+
+    "asc_lowhipa_base": {
+        "modelname": "openai/whisper-base",
+        "gen_args": {
+            "num_beams": 3
+        },
+        "fallback": [1,7,5],
+    
+        "corpora": {
+            "train": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": 0
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/asc_lowhipa_base",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 16,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "warmup_steps": 0,
+            "logging_first_step": "True",
+            "max_steps": -1,
+            "num_train_epochs": 10,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 0.2,
+            "eval_steps": 0.2,
+            "logging_steps": 0.1,
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "True",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "True",
+            "torch_empty_cache_steps": 1,
+            "max_seconds": 6
+        }
+    },
+
+    "asc_lowhipa_large": {
+        "modelname": "openai/whisper-large-v2",
+        "gen_args": {"num_beams": 3},
+        "fallback": [7,5,1],
+        "corpora": {
+            "train": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": 0
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/asc_lowhipa_large",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 16,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "max_steps": 630,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 126,
+            "eval_steps": 126,
+            "logging_steps": 63,
+            "logging_first_step": "True",
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "True",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "False",
+            "torch_empty_cache_steps": 1,
+            "max_seconds": 6
+        }
+    },
+    "thchs_lowhipa_base":{
+        "modelname": "openai/whisper-base",
+        "gen_args": {
+            "num_beams": 3
+        },
+        "fallback": [1,7,5],
+    
+        "corpora": {
+            "train": {
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        500
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/thchs_lowhipa_base",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 16,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "max_steps": 630,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 126,
+            "eval_steps": 126,
+            "logging_steps": 63,
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "True",
+            "metric_for_best_model": "per",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "True",
+            "torch_empty_cache_steps": 1
+        }
+    },
+    "thchs_lowhipa_large":{
+        "modelname": "openai/whisper-large-v2",
+        "gen_args": {"num_beams": 3},
+        "fallback": [7,5,1],
+        "corpora": {
+            "train": {
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        500
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/thchs_lowhipa_large",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 16,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "max_steps": 630,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 448,
+            "save_steps": 126,
+            "eval_steps": 126,
+            "logging_steps": 63,
+            "logging_first_step": "True",
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "False",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "False",
+            "torch_empty_cache_steps": 4
+        }
+    },
+    "comb_lowhipa_base":
+    {
+        "modelname": "openai/whisper-base",
+        "gen_args": {
+            "num_beams": 3
+        },
+        "fallback": [1,7,5],
+    
+        "corpora": {
+            "train": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        1000
+                    ]
+                },
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000
+                    ]
+                },
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        50
+                    ]
+                },
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50
+                    ]
+                },
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        50
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/comb_lowhipa_base",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 64,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "max_steps": 1410,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 282,
+            "eval_steps": 282,
+            "logging_steps": 282,
+            "logging_first_step": "True",
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "False",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "False",
+            "torch_empty_cache_steps": 4
+        }
+    },
+    "comb_lowhipa_large":
+    {
+        "modelname": "openai/whisper-large-v2",
+        "gen_args": {"num_beams": 3},
+        "fallback": [7,5,1],
+        "corpora": {
+            "train": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        1000
+                    ]
+                },
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000,
+                        1000
+                    ]
+                },
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        50
+                    ]
+                },
+                "multipa": {
+                    "languages": [
+                        "ja",
+                        "pl",
+                        "mt",
+                        "hu",
+                        "fi",
+                        "el",
+                        "ta"
+                    ],
+                    "limit": [
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50,
+                        50
+                    ]
+                },
+                "thchs": {
+                    "languages": "cmn",
+                    "limit": [
+                        50
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/comb_lowhipa_large",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 64,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "max_steps": 1410,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 282,
+            "eval_steps": 282,
+            "logging_steps": 282,
+            "logging_first_step": "True",
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "False",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "False",
+            "torch_empty_cache_steps": 4
+        }
+    },
+    "lowhipa_large_sr":
+    {
+        "modelname": "openai/whisper-large-v2",
+        "gen_args": {"num_beams": 3},
+        "fallback": [7,5,1],
+        "corpora": {
+            "train": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        1000
+                    ]
+                },
+                "multipa": {
+                    "languages": [
+                        "el",
+                        "mt"
+                    ],
+                    "limit": [
+                        1000
+                    ]
+                }
+            },
+            "dev": {
+                "asc": {
+                    "languages": "ara",
+                    "limit": [
+                        150
+                    ]
+                },
+                "multipa": {
+                    "languages": [
+                        "el",
+                        "mt"
+                    ],
+                    "limit": [
+                        150
+                    ]
+                }
+            }
+        },
+        "hyperparams": {
+            "output_dir": "../models/lowhipa_large_sr",
+            "overwrite_output_dir": "True",
+            "peft": "True",
+            "per_device_train_batch_size": 32,
+            "gradient_accumulation_steps": 1,
+            "learning_rate": 0.001,
+            "warmup_ratio": 0.1,
+            "max_steps": 940,
+            "gradient_checkpointing": "True",
+            "fp16": "True",
+            "eval_strategy": "steps",
+            "per_device_eval_batch_size": 8,
+            "predict_with_generate": "True",
+            "generation_max_length": 225,
+            "save_steps": 188,
+            "eval_steps": 188,
+            "logging_steps": 94,
+            "logging_first_step": "True",
+            "report_to": [
+                "tensorboard"
+            ],
+            "load_best_model_at_end": "False",
+            "metric_for_best_model": "pfer",
+            "greater_is_better": "False",
+            "hub_private_repo": "True",
+            "push_to_hub": "False",
+            "torch_empty_cache_steps": 4
+        }
+    }
+
+
+
+
+
+}
