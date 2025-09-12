@@ -49,7 +49,7 @@ parser.add_argument("-micro", "--incl_micro", action="store_false",
                     help="Specify whether to include per-prediction results") 
 parser.add_argument("-dn", "--device_nr", default=('cuda:0' if torch.cuda.is_available() else 'cpu'),
                     help="Specify cuda device") 
-parser.add_argument("-peft", "--peft", action="store_false",
+parser.add_argument("-peft", "--peft", action="store_true",
                     help="Specify whether model to be loaded is PEFT LoRA") 
 parser.add_argument("-zt", "--zero_shot", action="store_true",
                     help="Specify whether to use zero-shot evaluation")
@@ -193,67 +193,45 @@ def get_metrics(data, eval_metrics: STIPA_METRICS=False, normalize=False,
     return results
 
 namemap = {
-    "a_bf1k": 
-        {"ckpt": "a_bf1k10/checkpoint-440",
-         "fname": "a_bf_1k-4.txt"},
-    "a_bl1k": 
-        {"ckpt": "a_bl1k10/checkpoint-440",
-         "fname": "a_bl_1k-4.txt"},
-    "a_lf1k": 
-        {"ckpt": "a_lf1k10/checkpoint-660",
-         "fname": "a_lf_1k-6.txt"},
-    "a_ll1k": 
-        {"ckpt": "a_ll1k10/checkpoint-880",
-         "fname": "a_ll_1k-8.txt"},
-    "a_llall5": 
-        {"ckpt": "a_llall5/checkpoint-1749",
-         "fname": "a_ll_all-3.txt"},
-        
-    "b_bl_asc1k":
-        {"ckpt": "b_bl_asc1k/checkpoint-378",
-         "fname": "b_bl_asc1k-6.txt"},
-    "b_bl_ascall":
-        {"ckpt": "b_bl_ascall/checkpoint-1020",
-         "fname": "b_bl_ascall-10.txt"}, 
-    "b_ll_asc1k":
-        {"ckpt": "b_ll_asc1k/checkpoint-378",
-         "fname": "b_ll_asc1k-6.txt"},
-    "b_ll_ascall":
-        {"ckpt": "b_ll_ascall/checkpoint-1020",
-         "fname": "b_ll_ascall-10.txt"},
+    "whipa-base-cv": 
+        {"ckpt": "whipa-base-cv/checkpoint-440",
+         "fname": "whipa-base-cv-4.txt"},
+    "lowhipa-base-cv": 
+        {"ckpt": "lowhipa-base-cv/checkpoint-440",
+         "fname": "lowhipa-base-cv-4.txt"},
+    "whipa-large-cv": 
+        {"ckpt": "whipa-large-cv/checkpoint-660",
+         "fname": "whipa-large-cv-6.txt"},
+    "lowhipa-large-cv": 
+        {"ckpt": "lowhipa-large-cv/checkpoint-880",
+         "fname": "lowhipa-large-cv-8.txt"},
 
+    "lowhipa-base-asc":
+        {"ckpt": "lowhipa-base-asc/checkpoint-378",
+         "fname": "lowhipa-base-asc-6.txt"},
+    "lowhipa-large-asc":
+        {"ckpt": "lowhipa-large-asc/checkpoint-378",
+         "fname": "lowhipa-large-asc-6.txt"},
 
+    "lowhipa-base-thchs30":
+        {"ckpt": "lowhipa-base-thchs30/checkpoint-252",
+         "fname": "lowhipa-base-thchs30-4.txt"},
+    "lowhipa-large-thchs30":
+        {"ckpt": "lowhipa-large-thchs30/checkpoint-630",
+         "fname": "lowhipa-large-thchs30-10.txt"},
 
-    "b_bl_thchs1k":
-        {"ckpt": "b_bl_thchs1k/checkpoint-252",
-         "fname": "b_bl_thchs1k-4.txt"},
-    "b_bl_thchsall":
-        {"ckpt": "b_bl_thchsall/checkpoint-1570",
-         "fname": "b_bl_thchsall-10.txt"},
-    "b_ll_thchs1k":
-        {"ckpt": "b_ll_thchs1k/checkpoint-630",
-         "fname": "b_ll_thchs1k-10.txt"},
-    "b_ll_thchsall":
-        {"ckpt": "b_ll_thchsall/checkpoint-1570",
-         "fname": "b_ll_thchsall-10.txt"},
-        
-    "c_bl_comb91k":
-        {"ckpt": "c_bl_comb91k/checkpoint-564",
-         "fname": "c_bl_comb91k-4.txt"},
+    "lowhipa-base-comb":
+        {"ckpt": "lowhipa-base-comb/checkpoint-564",
+         "fname": "lowhipa-base-comb-4.txt"},
+    "lowhipa-large-comb":
+        {"ckpt": "lowhipa-large-comb/checkpoint-846",
+         "fname": "lowhipa-large-comb-6.txt"},
+    "lowhipa-large-sr":
+        {"ckpt": "lowhipa-large-sr/checkpoint-940",
+         "fname": "lowhipa-large-sr-10.txt"},
 
-    "c_ll_comb91k":
-        {"ckpt": "c_ll_comb91k/checkpoint-846",
-         "fname": "c_ll_comb91k-6.txt"},
-    "d_ll_araelmt1k":
-        {"ckpt": "d_ll_araelmt1k/checkpoint-940",
-         "fname": "d_ll_araelmt1k-10.txt"},
-    "d_bl_araelmt1k":
-        {"ckpt": "d_bl_araelmt1k/checkpoint-376",
-         "fname": "d_bl_araelmt1k-4.txt"},
-
-        
     "multipa": {"fname": "multipa1k.txt"}
-    
+
 }
 
 if __name__=="__main__":
@@ -280,9 +258,8 @@ if __name__=="__main__":
     else:
         LANGS = [args.languages]
 
-
     if not (args.model_checkpoint.startswith("openai") or args.model_checkpoint=="multipa"):
-        CHECKPOINT = os.path.join("../models/", args.model_checkpoint)
+        CHECKPOINT = os.path.join("../models/", namemap[args.model_checkpoint]["ckpt"])
         with open(os.path.join(os.path.dirname(CHECKPOINT), "ft_config.json"), "r") as f:
             ft_config = json.load(f)
             gen_args = ft_config["gen_args"]

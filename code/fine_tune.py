@@ -158,6 +158,7 @@ if __name__=="__main__":
     if args.use_config:
         # global settings (constant)
         STREAMING = ast.literal_eval(global_config["streaming"])
+        print("Streaming:", STREAMING)
         TO_DISK = ast.literal_eval(global_config["to_disk"])
         NUM_PROC = int(global_config["num_proc"])
         # config-specific settings
@@ -206,7 +207,7 @@ if __name__=="__main__":
 
     ## Load model resources ##
     model, tokenizer, processor = load_whisper_res(MODELNAME, get_tokenizer=True,
-                    get_processor=True, peft=PEFT, is_whipa=args.contd, trainable=True)
+                                    get_processor=True, peft=PEFT, trainable=True)
     model = model.train()
     ## Load data ##
     data_bin = {"train": list(), "dev": list()}

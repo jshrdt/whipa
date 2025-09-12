@@ -24,13 +24,14 @@ Compatible with:
 * https://github.com/ctaguchi/multipa [ver: jun 06, 2024; 69bd23fcaf2270d8b87d0e7255f74de821c52986]
 
 ```
-@misc{taguchi2023universal,
-      title={Universal Automatic Phonetic Transcription into the International Phonetic Alphabet}, 
-      author={Chihiro Taguchi and Yusuke Sakai and Parisa Haghani and David Chiang},
-      year={2023},
-      eprint={2308.03917},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{taguchi23_interspeech,
+	title = {Universal Automatic Phonetic Transcription into the International Phonetic Alphabet},
+	author = {Chihiro Taguchi and Yusuke Sakai and Parisa Haghani and David Chiang},
+  	year = {2023},
+  	booktitle = {Interspeech 2023},
+  	pages = {2548--2552},
+  	doi = {10.21437/Interspeech.2023-2584},
+  	issn = {2958-1796},
 }
 ```
 
@@ -39,11 +40,14 @@ Compatible with:
 * Speech data https://openslr.org/18/ (Apache License v.2.0, accessed Feb 13, 2025)
 
 ```
-@misc{THCHS30_2015,
-  title={THCHS-30 : A Free Chinese Speech Corpus},
-  author={Dong Wang, Xuewei Zhang, Zhiyong Zhang},
-  year={2015},
-  url={http://arxiv.org/abs/1512.01882}
+@misc{wang2015-thchs30,
+      title={THCHS-30 : A Free Chinese Speech Corpus}, 
+      author={Dong Wang and Xuewei Zhang},
+      year={2015},
+      eprint={1512.01882},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/1512.01882}, 
 }
 ```
 
@@ -51,12 +55,15 @@ Compatible with:
 * ! transcriptions should be placed into data/data_thchs30/
 
 ```
-@misc{Taubert_2023,
-title={THCHS-30 - Aligned IPA transcriptions},
-author={Taubert, Stefan},
-year={2023},
-DOI={10.5281/zenodo.7528595},
-publisher={Zenodo}
+@misc{taubert23-thchs30ipa,
+  author       = {Taubert, Stefan},
+  title        = {THCHS-30 - Aligned IPA transcriptions},
+  month        = jan,
+  year         = "2023",
+  publisher    = {Zenodo},
+  version      = {0.0.1},
+  doi          = {10.5281/zenodo.7528596},
+  url          = {https://doi.org/10.5281/zenodo.7528596},
 }
 ```
 

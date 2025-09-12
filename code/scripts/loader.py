@@ -55,7 +55,8 @@ def load_whisper_res(modelname, get_tokenizer=False, get_processor=False,
             # https://github.com/huggingface/peft/blob/main/examples/int8_training/peft_bnb_whisper_large_v2_training.ipynb
             # https://github.com/Vaibhavs10/fast-whisper-finetuning/blob/main/Whisper_w_PEFT.ipynb
             model = WhisperForConditionalGeneration.from_pretrained(modelname,
-                        quantization_config=BitsAndBytesConfig(load_in_8bit=True), device_map="auto")
+                        quantization_config=BitsAndBytesConfig(load_in_8bit=True),
+                        device_map="auto")
             # select decoder modules only
             # https://github.com/openai/whisper/discussions/1707
             target_modules = []

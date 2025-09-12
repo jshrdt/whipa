@@ -13,11 +13,11 @@ import textgrid
 # Combined script from MultIPA G2P tool and romkan release (https://github.com/soimort/python-romkan/blob/master/src/romkan/common.py, 22.02.2025)
 from scripts.japanese_to_ipa_romkan_merge import Japanese2IPA
 
-sys.path.insert(0, "../data/multipa") # multipa dir, https://github.com/ctaguchi/multipa
-from converter.maltese_to_ipa import Maltese2IPA
-from converter.finnish_to_ipa import Finnish2IPA
-from converter.greek_to_ipa import Greek2IPA
-from converter.tamil_to_ipa import Tamil2IPA
+#sys.path.insert(0, "../data/multipa") # multipa dir, https://github.com/ctaguchi/multipa
+from scripts.ctaguchi_converter.maltese_to_ipa import Maltese2IPA
+from scripts.ctaguchi_converter.finnish_to_ipa import Finnish2IPA
+from scripts.ctaguchi_converter.greek_to_ipa import Greek2IPA
+from scripts.ctaguchi_converter.tamil_to_ipa import Tamil2IPA
 
 
 def parse_langs(lgs: str|list, corpora: list) -> dict[str: list|str]:
