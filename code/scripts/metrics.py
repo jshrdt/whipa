@@ -289,7 +289,7 @@ class STIPA_METRICS():
                             "cer": self.cer,
                             })
         return results
-            
+
 
     def do_lvnshtn(self, pred, gold):
         return self.dist.fast_levenshtein_distance(source=pred, target=gold)

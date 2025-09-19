@@ -66,8 +66,6 @@ def whipa_predict(model, tokenizer, arr, rate_limit, og_beams, how, fallback):
     if how!="vanilla":
         # check validity of prediciton
         if len(retokenize_ipa(out)) > rate_limit:  # max articulatory phone/secs rate
-            print("fb")
-            print(len(retokenize_ipa(out)), out )
             # 1: beam backoff
             if not fallback:
                 n_beams = (1,3,5,7)
@@ -131,7 +129,7 @@ def get_preds(model, data: Dataset|IterableDataset, tokenizer,
             if ZERO_SHOT:
                 model.generation_config.language = "<|{}|>".format(
                     {"cnh": "bo", "hsb": "pl", "lg": "sw", "tt": "tr"}[lg])
-                        # set max phone/sec rate
+            # set max phone/sec rate
             max_rate = (lg_rates[lg] if lg in lg_rates else 20.0)  
             rate_limit = round((len(batch['audio']['array'])/16_000)*max_rate)
 
