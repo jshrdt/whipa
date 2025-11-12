@@ -38,6 +38,8 @@ Experimentation with parameters during `transcribe_ipa()` is encouraged:
 * repetition penalty (float)
 * exponential_decay_length_penalty (float)
 
+`Note`: Depending on the used model, available compute, and input data, full fallback may significantly increase latency if the model struggles a lot with the input data; reduce fallback beam sizes or manually disable intermediate fallback steps as needed.
+
 See also : [WhisperForConditionalGeneration.generate](https://huggingface.co/docs/transformers/en/model_doc/whisper#transformers.WhisperForConditionalGeneration.generate)
 
 #### 4) Evaluation metrics
@@ -104,7 +106,7 @@ $ python eval.py -ckpt [model-folder-name] -corp asc -norm -micro -how fallback 
 
 * see data/README.md
 
-## models (to be updated, sep20 2025)
+## models
 | Name | Model | Data | Checkpoint | Link |
 | --- | --- | --- | --- | --- | 
 | whipa-base-cv | Whisper-base, full fine-tuning | 1k samples each of CommonVoice Greek, Finnish, Japanese, Hungarian, Maltese, Polish, Tamil | 4 | [jshrdt/whipa-base-cv](https://huggingface.co/jshrdt/whipa-base-cv) |
