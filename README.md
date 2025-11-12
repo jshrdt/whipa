@@ -122,8 +122,31 @@ $ python eval.py -ckpt [model-folder-name] -corp asc -norm -micro -how fallback 
 
 ## citation
 
-WhIPA paper (pending):  
-Jacob Lee Suchardt, Hana El-Shazli, Pierluigi Cassotti. 2025. Towards Language-Agnostic STIPA: Universal Phonetic Transcription to Support Language Documentation at Scale. Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing.
+WhIPA paper:  
+Jacob Lee Suchardt, Hana El-Shazli, and Pierluigi Cassotti. 2025. Towards Language-Agnostic STIPA: Universal Phonetic Transcription to Support Language Documentation at Scale. In Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing, pages 31411–31427, Suzhou, China. Association for Computational Linguistics. https://doi.org/10.18653/v1/2025.emnlp-main.1600
+
+```
+@inproceedings{suchardt-etal-2025-towards,
+    title = "Towards Language-Agnostic {STIPA}: Universal Phonetic Transcription to Support Language Documentation at Scale",
+    author = "Suchardt, Jacob Lee  and
+      El-Shazli, Hana  and
+      Cassotti, Pierluigi",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.1600/",
+    doi = "10.18653/v1/2025.emnlp-main.1600",
+    pages = "31411--31427",
+    ISBN = "979-8-89176-332-6",
+    abstract = "This paper explores the use of existing state-of-the-art speech recognition models (ASR) for the task of generating narrow phonetic transcriptions using the International Phonetic Alphabet (STIPA). Unlike conventional ASR systems focused on orthographic output for high-resource languages, STIPA can be used as a language-agnostic interface valuable for documenting under-resourced and unwritten languages. We introduce a new dataset for South Levantine Arabic and present the first large-scale evaluation of STIPA models across 51 language families. Additionally, we provide a use case on Sanna, a severely endangered language. Our findings show that fine-tuned ASR models can produce accurate IPA transcriptions with limited supervision, significantly reducing phonetic error rates even in extremely low-resource settings. The results highlight the potential of STIPA for scalable language documentation."
+}
+```
 
 Master's thesis:  
 ```
