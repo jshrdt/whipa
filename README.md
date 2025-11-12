@@ -1,5 +1,5 @@
 # whipa
-Code repository of "Towards Language-Agnostic STIPA: Universal Phonetic Transcription to Support Language Documentation at Scale."
+Code repository of "Towards Language-Agnostic STIPA: Universal Phonetic Transcription to Support Language Documentation at Scale." (https://doi.org/10.18653/v1/2025.emnlp-main.1600)
 
 Abstract:  
 This paper explores the use of existing state-of-the-art speech recognition models (ASR) for the task of transcribing speech with narrow phonetic transcriptions using the International Phonetic Alphabet (Speech-to-IPA, STIPA). Unlike conventional ASR systems focused on orthographic output for high-resource languages, STIPA can be used as a language-agnostic interface valuable for documenting under-resourced and unwritten languages. We introduce a new STIPA dataset for South Levantine Arabic and present a large-scale evaluation of STIPA models across 21 language families. Additionally, we provide a use case on Sanna, a severely endangered language. Our findings show that fine-tuned ASR models can produce accurate IPA transcriptions with limited supervision, significantly reducing phonetic error rates even in extremely low-resource settings. The results highlight the potential of STIPA for scalable language documentation and the relevance of training data composition.
