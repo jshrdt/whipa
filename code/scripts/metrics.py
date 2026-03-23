@@ -186,7 +186,7 @@ class STIPA_METRICS():
                                 "ʦ": "t͡s",
                                 "ʤ": "d͡ʒ",
                                 "ʣ": "d͡z",
-                                "ɔʰ": "ɔ̤", # untypical usage of apirated h on vowels
+                                "ɔʰ": "ɔ̤", # untypical usage of aspirated h on vowels
                                 # unicode differences
                                 "а": "a",
                                 "е": "e",
