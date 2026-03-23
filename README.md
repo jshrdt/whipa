@@ -66,7 +66,7 @@ eval_metrics.compute_all(pred=predicted_ipa, gold=gold_ipa, char_based=False)
 # OR, e.g.:
 eval_metrics.do_pfer(pred=predicted_ipa, gold=gold_ipa, char_based=False)
 ```
-The WhIPA re-implementations account for some more phonetic detail than those referenced from PanPhon and MultIPA. While all implementation build on the PanPhon feature table, unknwon phone combinations are handled differently. E.g.: The combination of [ä] + [:] to [ä:] happens to be missing from PanPhon, effects are as follows:
+The WhIPA re-implementations account for some more phonetic detail than those referenced from PanPhon and MultIPA. While all implementation build on the PanPhon feature table, unknown phone combinations are handled differently. E.g.: The combination of [ä] + [:] to [ä:] happens to be missing from PanPhon, effects are as follows:
 ```
 PanPhon-PFER(hyp="ä:", ref="a") = 0.0%; retrieves no information for [ä:]
 MultIPA-PFER(hyp="ä:", ref="a") = 200%; assigns zero-vectors to both [ä] and [:], overshooting target length
