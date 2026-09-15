@@ -131,7 +131,7 @@ def prepare_dataset_ipa(batch: dict, processor: WhisperProcessor,
         )[0]
     # with processor.as_target_processor(): #!
     #! edited to use WhisperProcessor & tokeniser
-    batch["labels"] = tokenizer.encode_plus(batch["ipa"], add_special_tokens=True).input_ids
+    batch["labels"] = tokenizer(batch["ipa"], add_special_tokens=True).input_ids
     return batch
 
 
